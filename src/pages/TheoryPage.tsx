@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, Users, Trophy, Target, Lightbulb, Brain, Heart, Zap, ArrowUp, ArrowRight } from 'lucide-react';
+import { BookOpen, Users, Trophy, Target, Lightbulb, Brain, Heart, Zap, ArrowUp, ArrowRight, Award, BarChart3, Smile, Share2, BookMarked, Users2 } from 'lucide-react';
 
 interface TheoryPageProps {
   setCurrentPage?: (page: string) => void;
@@ -10,25 +10,37 @@ const TheoryPage: React.FC<TheoryPageProps> = ({ setCurrentPage }) => {
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-12">
-          <BookOpen className="h-16 w-16 text-green-600 mx-auto mb-4" />
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">Apa itu Gamifikasi?</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <div className="bg-gradient-to-br from-cyan-500 to-blue-600 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+            <BookOpen className="h-12 w-12 text-white" />
+          </div>
+          <h1 className="text-5xl font-black bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent mb-4">Apa itu Gamifikasi?</h1>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-medium">
             Mari kenali apa itu gamifikasi dan bagaimana cara kerjanya dalam pembelajaran
           </p>
         </div>
 
         {/* Definisi */}
-        <section className="bg-white rounded-lg shadow-lg p-8 mb-8">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Gamifikasi itu Apa Sih?</h2>
-          <p className="text-gray-600 leading-relaxed mb-4">
-            Gamifikasi adalah cara membuat kegiatan belajar jadi seperti bermain game. 
-            Kita pakai hal-hal yang ada di game seperti poin, lencana, level, dan ranking 
-            untuk membuat siswa lebih semangat belajar. Jadi belajar tidak membosankan lagi!
+        <section className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl shadow-lg p-8 mb-8 border border-cyan-100">
+          <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent mb-6">Apa itu Gamifikasi?</h2>
+          <p className="text-gray-700 leading-relaxed mb-4 text-lg">
+            Gamifikasi adalah penerapan mekanisme desain game dalam konteks non-game, seperti pendidikan, untuk mendorong partisipasi dan semangat belajar. Istilah ini diperkenalkan oleh Nick Pelling pada tahun 2002 dan dalam pembelajaran diwujudkan melalui poin, lencana, atau papan peringkat.
           </p>
-          <p className="text-gray-600 leading-relaxed">
-            Ide ini mulai populer sekitar tahun 2010 ketika banyak aplikasi dan website 
-            mulai menggunakan cara ini untuk membuat penggunanya lebih aktif.
-          </p>
+
+          <div className="grid md:grid-cols-2 gap-6 mt-8">
+            <div className="bg-white rounded-xl p-6 shadow-md border-l-4 border-cyan-500">
+              <h3 className="text-xl font-bold text-cyan-700 mb-3">Gamifikasi</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Menambahkan unsur game pada kegiatan belajar yang sudah ada, misalnya memberi poin pada siswa yang menyelesaikan latihan Fiqh.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-md border-l-4 border-purple-500">
+              <h3 className="text-xl font-bold text-purple-700 mb-3">GBL (Game-Based Learning)</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Menggunakan game secara langsung sebagai media belajar, misalnya game petualangan tentang hijrah Nabi Muhammad SAW untuk materi SKI.
+              </p>
+            </div>
+          </div>
         </section>
 
         {/* Teori Dasar */}
@@ -86,62 +98,103 @@ const TheoryPage: React.FC<TheoryPageProps> = ({ setCurrentPage }) => {
         </section>
 
         {/* Elemen Gamifikasi */}
-        <section className="bg-white rounded-lg shadow-lg p-8 mb-8">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">Bagian-Bagian Gamifikasi</h2>
-          
-          <div className="space-y-6">
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold text-gray-800 mb-3 flex items-center">
-                <Trophy className="h-6 w-6 text-yellow-500 mr-2" />
-                Poin, Lencana, dan Ranking
-              </h3>
-              <div className="grid md:grid-cols-3 gap-4">
-                <div>
-                  <h4 className="font-medium text-gray-700 mb-1">Poin</h4>
-                  <p className="text-sm text-gray-600">Angka yang didapat siswa ketika berhasil mengerjakan sesuatu</p>
-                </div>
-                <div>
-                  <h4 className="font-medium text-gray-700 mb-1">Lencana</h4>
-                  <p className="text-sm text-gray-600">Gambar atau simbol yang didapat ketika mencapai target tertentu</p>
-                </div>
-                <div>
-                  <h4 className="font-medium text-gray-700 mb-1">Ranking</h4>
-                  <p className="text-sm text-gray-600">Daftar urutan siswa berdasarkan pencapaian mereka</p>
+        <section className="bg-white rounded-2xl shadow-lg p-8 mb-8">
+          <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Elemen-Elemen Gamifikasi</h2>
+
+          <div className="space-y-4">
+            {/* Point */}
+            <div className="bg-gradient-to-r from-yellow-400 to-amber-500 rounded-2xl p-6 flex items-center gap-6 shadow-lg transform hover:scale-105 transition-transform duration-300 border-4 border-dashed border-yellow-700">
+              <div className="flex-shrink-0">
+                <div className="flex items-center justify-center h-20 w-20 rounded-full bg-white shadow-lg">
+                  <Trophy className="h-10 w-10 text-yellow-600" />
                 </div>
               </div>
-            </div>
-            
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold text-gray-800 mb-3 flex items-center">
-                <Target className="h-6 w-6 text-red-500 mr-2" />
-                Level dan Misi
-              </h3>
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <h4 className="font-medium text-gray-700 mb-1">Level</h4>
-                  <p className="text-sm text-gray-600">Tingkatan yang naik seiring kemajuan belajar siswa</p>
-                </div>
-                <div>
-                  <h4 className="font-medium text-gray-700 mb-1">Misi</h4>
-                  <p className="text-sm text-gray-600">Tugas atau tantangan yang harus diselesaikan siswa</p>
-                </div>
+              <div className="flex-1">
+                <h3 className="text-xl font-bold text-white mb-2">Poin: Umpan balik kuantitatif untuk menandai kemajuan dan prestasi siswa.</h3>
               </div>
             </div>
-            
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold text-gray-800 mb-3 flex items-center">
-                <Users className="h-6 w-6 text-blue-500 mr-2" />
-                Bermain Bersama Teman
-              </h3>
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <h4 className="font-medium text-gray-700 mb-1">Kerja Tim</h4>
-                  <p className="text-sm text-gray-600">Mengerjakan tugas bersama-sama dengan teman</p>
+
+            {/* Badge */}
+            <div className="bg-gradient-to-r from-orange-400 to-orange-600 rounded-2xl p-6 flex items-center gap-6 shadow-lg transform hover:scale-105 transition-transform duration-300 border-4 border-dashed border-orange-800">
+              <div className="flex-shrink-0">
+                <div className="flex items-center justify-center h-20 w-20 rounded-full bg-white shadow-lg">
+                  <Award className="h-10 w-10 text-orange-600" />
                 </div>
-                <div>
-                  <h4 className="font-medium text-gray-700 mb-1">Saling Memberi Pujian</h4>
-                  <p className="text-sm text-gray-600">Siswa bisa memberikan apresiasi kepada temannya</p>
+              </div>
+              <div className="flex-1">
+                <h3 className="text-xl font-bold text-white mb-2">Lencana: Simbol visual pencapaian yang memberi rasa bangga dan status.</h3>
+              </div>
+            </div>
+
+            {/* Leaderboard */}
+            <div className="bg-gradient-to-r from-red-500 to-red-600 rounded-2xl p-6 flex items-center gap-6 shadow-lg transform hover:scale-105 transition-transform duration-300 border-4 border-dashed border-red-800">
+              <div className="flex-shrink-0">
+                <div className="flex items-center justify-center h-20 w-20 rounded-full bg-white shadow-lg">
+                  <BarChart3 className="h-10 w-10 text-red-600" />
                 </div>
+              </div>
+              <div className="flex-1">
+                <h3 className="text-xl font-bold text-white mb-2">Papan Peringkat: Menumbuhkan kompetisi sehat melalui peringkat capaian siswa.</h3>
+              </div>
+            </div>
+
+            {/* Level & Progress */}
+            <div className="bg-gradient-to-r from-pink-500 to-pink-600 rounded-2xl p-6 flex items-center gap-6 shadow-lg transform hover:scale-105 transition-transform duration-300 border-4 border-dashed border-pink-800">
+              <div className="flex-shrink-0">
+                <div className="flex items-center justify-center h-20 w-20 rounded-full bg-white shadow-lg">
+                  <BarChart3 className="h-10 w-10 text-pink-600" />
+                </div>
+              </div>
+              <div className="flex-1">
+                <h3 className="text-xl font-bold text-white mb-2">Level & Progres: Memberi struktur pembelajaran dan rasa kemajuan, sering divisualisasikan dengan progress bar.</h3>
+              </div>
+            </div>
+
+            {/* Challenge & Mission */}
+            <div className="bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl p-6 flex items-center gap-6 shadow-lg transform hover:scale-105 transition-transform duration-300 border-4 border-dashed border-purple-800">
+              <div className="flex-shrink-0">
+                <div className="flex items-center justify-center h-20 w-20 rounded-full bg-white shadow-lg">
+                  <Target className="h-10 w-10 text-purple-600" />
+                </div>
+              </div>
+              <div className="flex-1">
+                <h3 className="text-xl font-bold text-white mb-2">Tantangan & Misi: Tugas khusus dengan imbalan yang memotivasi siswa.</h3>
+              </div>
+            </div>
+
+            {/* Narration & Story */}
+            <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl p-6 flex items-center gap-6 shadow-lg transform hover:scale-105 transition-transform duration-300 border-4 border-dashed border-indigo-800">
+              <div className="flex-shrink-0">
+                <div className="flex items-center justify-center h-20 w-20 rounded-full bg-white shadow-lg">
+                  <BookMarked className="h-10 w-10 text-indigo-600" />
+                </div>
+              </div>
+              <div className="flex-1">
+                <h3 className="text-xl font-bold text-white mb-2">Narasi & Cerita: Membuat pembelajaran lebih menarik, emosional, dan mudah diingat.</h3>
+              </div>
+            </div>
+
+            {/* Instant Feedback */}
+            <div className="bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl p-6 flex items-center gap-6 shadow-lg transform hover:scale-105 transition-transform duration-300 border-4 border-dashed border-cyan-700">
+              <div className="flex-shrink-0">
+                <div className="flex items-center justify-center h-20 w-20 rounded-full bg-white shadow-lg">
+                  <Smile className="h-10 w-10 text-cyan-600" />
+                </div>
+              </div>
+              <div className="flex-1">
+                <h3 className="text-xl font-bold text-white mb-2">Umpan Balik Instan: Respon cepat atas capaian siswa untuk mempercepat proses belajar.</h3>
+              </div>
+            </div>
+
+            {/* Additional Elements */}
+            <div className="bg-gradient-to-r from-cyan-400 to-cyan-500 rounded-2xl p-6 flex items-center gap-6 shadow-lg transform hover:scale-105 transition-transform duration-300 border-4 border-dashed border-cyan-700">
+              <div className="flex-shrink-0">
+                <div className="flex items-center justify-center h-20 w-20 rounded-full bg-white shadow-lg">
+                  <Users2 className="h-10 w-10 text-cyan-600" />
+                </div>
+              </div>
+              <div className="flex-1">
+                <h3 className="text-xl font-bold text-white mb-2">Elemen Tambahan: Avatar, mata uang virtual, kolaborasi tim, dan pilihan jalur belajar.</h3>
               </div>
             </div>
           </div>
@@ -220,13 +273,13 @@ const TheoryPage: React.FC<TheoryPageProps> = ({ setCurrentPage }) => {
       </div>
 
       {/* Navigation and Back to Top */}
-      <div className="bg-white py-8">
+      <div className="bg-gradient-to-r from-cyan-50 to-blue-50 py-8 border-t border-cyan-200">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex justify-end items-center">
             {setCurrentPage && (
               <button
                 onClick={() => setCurrentPage('platforms')}
-                className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 flex items-center"
+                className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 flex items-center shadow-lg hover:shadow-cyan-500/50"
               >
                 Selanjutnya: Aplikasi Game Belajar
                 <ArrowRight className="h-5 w-5 ml-2" />
